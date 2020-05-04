@@ -44,7 +44,6 @@ GuillotineBin.prototype.insert = function (rectangle) {
     this.freeRectangles.splice(freeNodeIndex, 1);
     if (this.merge) {
         this.mergeFreeList();
-        this.mergeFreeList();
     }
     this.usedRectangles.push(rectangle);
     return rectangle;

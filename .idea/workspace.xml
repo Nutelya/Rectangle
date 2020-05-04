@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1e13de8-2cdc-4687-80ee-56ce76124266" name="Default Changelist" comment="" />
+    <list default="true" id="c1e13de8-2cdc-4687-80ee-56ce76124266" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/BinPacking/PackingController.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/BinPacking/PackingController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/BinPacking/oneDim/Bin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/BinPacking/oneDim/OneDimPack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/BinPacking/oneDim/Stripe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/BinPacking/twoDim/GuillotineBin.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/BinPacking/twoDim/GuillotineBin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Sound.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,7 +24,11 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1bRElXd7qzknDhlpCEHKbr48qyr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -52,9 +68,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="656" y="145" width="607" height="789" key="find.popup" timestamp="1588587634875">
+    <state x="656" y="145" width="607" height="789" key="find.popup" timestamp="1588592636679">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="656" y="145" width="607" height="789" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1588587634875" />
+    <state x="656" y="145" width="607" height="789" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1588592636679" />
   </component>
 </project>

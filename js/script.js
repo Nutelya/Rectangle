@@ -4,7 +4,6 @@
 
 var packingController = new PackingController();
 var pageController=null;
-var sound = new Sound("sound/click.ogg", "sound/click.mp3");
 var svg = new SVG();
 var svgInterval=null;
 var animation=new Animation();
@@ -109,7 +108,6 @@ $(document).ready( function() {
 
 
     $(".switch_container label input[type=radio]").click(function (e) {
-        sound.play();
         var name = $(this).attr("name");
         if (name=="dim") {
             packingController.setDim($(this).val());
@@ -123,7 +121,6 @@ $(document).ready( function() {
 
     $(".btn_target, .a_target").click(function (e){
         e.preventDefault();
-        sound.play();
         var link = $(this).attr("data-link");
         window.location.hash = link;
 
