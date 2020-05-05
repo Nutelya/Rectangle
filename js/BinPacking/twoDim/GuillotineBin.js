@@ -1,13 +1,3 @@
-/**
- * Created by Veronika on 24.4.2015.
- */
-
-/**
- * GuillotineBin implements different variants of bin packer algorithms that
- * use the GUILLOTINE data structure to keep track of the free space of the bin
- * where rectangles may be placed.
- */
-
 /// Initializes a new bin of the given size.
 function GuillotineBin(width, height, rotate, merge, rectChoice, splitMethod) {
     this.binWidth = width;
@@ -17,7 +7,7 @@ function GuillotineBin(width, height, rotate, merge, rectChoice, splitMethod) {
     this.rectChoice = rectChoice;
     this.splitMethod = splitMethod;
     // Stores a list of all the rectangles that we have packed so far. This is used only to compute the Occupancy ratio,
-    // so if you want to have the packer consume less memory, this can be removed.
+    // so if you want to have the packer consume     less memory, this can be removed.
     this.usedRectangles = [];
     var r = new Rectangle();
     r.x = 0;
@@ -43,7 +33,6 @@ GuillotineBin.prototype.insert = function (rectangle) {
     this.splitFreeRectByHeuristic(this.freeRectangles[freeNodeIndex], rectangle, this.splitMethod);
     this.freeRectangles.splice(freeNodeIndex, 1);
     if (this.merge) {
-        this.mergeFreeList();
         this.mergeFreeList();
     }
     this.usedRectangles.push(rectangle);
