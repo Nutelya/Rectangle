@@ -1,7 +1,3 @@
-/**
- * Created by Veronika on 29.4.2015.
- */
-
 function Animation(){
     this.width = 0;
     this.height = 0;
@@ -152,9 +148,7 @@ Animation.prototype.startAnimation = function() {
     if(packingController.isAnimationEnabled()) {
         this.animateObject(this.i);
     }else{
-        if(packingController.getDim()=="1D"){
-            this.drawStripes();
-        }else this.drawRectangles();
+this.drawRectangles();
     }
     //this.isRunning = false;
 }

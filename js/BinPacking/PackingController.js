@@ -1,54 +1,25 @@
-
 function PackingController(){
-    this.dim = "2D";
-    this.source = "random";
-    this.binWidth = 800;
-    this.binHeight = 300;
-    this.numObjects =  95;
-    this.minSize = 20;
-    this.maxSize = 60;
+    //taille de la plaque
+    this.binWidth = 600;
+    this.binHeight = 400;
+    //nombre d'objets
+    this.numObjects = 15;
+
+    //taille des rectangle générés aléatoirement
+    this.minSize = 80;
+    this.maxSize = 150;
+
+
     this.objectsToPack = [];
 
     this.offline = false;
     this.rotate = true;
-    this.shelfs = false;
-    this.MR = false;
-    this.WM = false;
+    this.MR = true;
     this.animate = false;
 
-    this.shelfHeur = 3;
+    //type de coupe, voir Enums.js
     this.guillHeur = 1;
-    this.split = 3;
-    this.sort =  5;
-    this.oneDimHeur = 3;
-
-    this.binWidthOneDim = 10;
-    this.gap = 2;
-    this.oneDimPack= null;
-}
-PackingController.prototype.getDim = function(){
-    var storageDim=window.localStorage.getItem("kaj_dim");
-    if (storageDim!=null) {
-        this.dim = storageDim;
-    }
-    return this.dim;
-}
-
-PackingController.prototype.setDim = function(bw){
-    window.localStorage.setItem("kaj_dim", bw);
-    this.dim = bw;
-}
-PackingController.prototype.getSource = function(){
-    var storageSource=window.localStorage.getItem("kaj_source");
-    if (storageSource!=null) {
-        this.source = storageSource;
-    }
-    return this.source;
-}
-
-PackingController.prototype.setSource = function(bw){
-    window.localStorage.setItem("kaj_source", bw);
-    this.source = bw;
+    this.split = 4;
 }
 PackingController.prototype.getBinWidth = function(){
     return this.binWidth;
@@ -114,14 +85,6 @@ PackingController.prototype.setRotationEnabled = function(n) {
     this.rotate = n;
 }
 
-PackingController.prototype.isShelfEnabled = function(){
-    return this.shelfs;
-}
-
-PackingController.prototype.setShelfsEnabled = function(n){
-    this.shelfs = n;
-}
-
 PackingController.prototype.isMREnabled = function(){
     return this.MR;
 }
@@ -144,14 +107,6 @@ PackingController.prototype.isAnimationEnabled = function(){
 
 PackingController.prototype.setAnimationEnabled = function(n){
     this.animate = n;
-}
-
-PackingController.prototype.getShelfHeur = function(){
-    return this.shelfHeur;
-}
-
-PackingController.prototype.setShelfHeur = function(n){
-    this.shelfHeur = n;
 }
 
 PackingController.prototype.getGuillHeur = function(){
@@ -178,90 +133,15 @@ PackingController.prototype.setSortHeur = function(n){
     this.sort = n;
 }
 
-PackingController.prototype.getOneDimHeur = function(){
-    return this.oneDimHeur;
-}
-
-PackingController.prototype.setOneDimHeur = function(n){
-    this.oneDimHeur = n;
-}
-
-PackingController.prototype.getBinWidthOneDim = function(){
-    return this.binWidthOneDim;
-}
-
-PackingController.prototype.setBinWidthOneDim = function(n){
-    this.binWidthOneDim = n;
-}
-
-PackingController.prototype.getGap = function(){
-    return this.gap;
-}
-
-PackingController.prototype.setGap = function(n){
-    this.gap = n;
-}
-
-PackingController.prototype.getOneDimPack = function(){
-    return this.oneDimPack;
-}
-
-PackingController.prototype.setOneDimPack = function(n){
-    this.oneDimPack = n;
-}
-
-PackingController.prototype.getInputsFromStep4 = function(){
-            this.minSize = 60;
-            this.maxSize = 100;
-            this.binWidth= 400;
-            this.binHeight= 400;
-            this.numObjects = 50;
-    /*    console.log("offline: "+offline);
-     console.log("rotate: "+rotate);
-     console.log("oneDimHeur: "+oneDimHeur);
-     console.log("sort: "+sort);
-     console.log("shelfHeur: "+shelfHeur);
-     console.log("WM: "+WM);
-     console.log("guillHeur: "+guillHeur);
-     console.log("split: "+split);
-     console.log("MR: "+MR);*/
-}
-
-
-PackingController.prototype.getInputsFromStep5 = function(){
-    this.animate = false;
-    this.guillHeur = 1;
-    this.split = 4;
-    this.MR = true;
-    this.sort = 1;
-
-    /*   console.log("offline: "+offline);
-     console.log("rotate: "+rotate);
-     console.log("oneDimHeur: "+oneDimHeur);
-     console.log("sort: "+sort);
-     console.log("shelfHeur: "+shelfHeur);
-     console.log("WM: "+WM);
-     console.log("guillHeur: "+guillHeur);
-     console.log("split: "+split);
-     console.log("MR: "+MR); */
-}
-
-
 /* A function to return random number from min to max */
 PackingController.prototype.getRandomInt= function(min, max) {
-    //return min + (Math.random() * max)
-    //console.log(min + " "+ max);
-    //console.log(Math.floor(Math.random() * (max - min)) + min);
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
 PackingController.prototype.generateObjects= function(numObjects, minSize, maxSize){
     for (var i = 0; i < numObjects; i++) {
         var obj;
-        if(this.dim=="1D")
-            obj = new Stripe(this.getRandomInt(minSize, maxSize));
-        else
-            obj = new Rectangle(this.getRandomInt(minSize, maxSize), this.getRandomInt(minSize, maxSize));
+        obj = new Rectangle(this.getRandomInt(minSize, maxSize), this.getRandomInt(minSize, maxSize));
         obj.r = this.getRandomInt(0, 255);
         obj.g = this.getRandomInt(0, 255);
         obj.b = this.getRandomInt(0, 255);
@@ -272,25 +152,11 @@ PackingController.prototype.generateObjects= function(numObjects, minSize, maxSi
 
 PackingController.prototype.packObjects= function(){
 
-        if(this.source == "random"){
             this.objectsToPack = [];
             this.generateObjects(this.numObjects, this.minSize, this.maxSize);
             //myObjects();
-        }else{
-            for(var i= 0; i< this.objectsToPack.length; i++){
-                this.objectsToPack[i].fit = false;
-                this.objectsToPack[i].y = -1;
-                this.objectsToPack[i].x = -1;
-            }
-        }
-        if(this.offline)
-            this.sortObjects();
         var bin;
-        if(this.shelfs){
-            bin = new ShelfBin(this.binWidth, this.binHeight, this.rotate, this.WM, this.shelfHeur);
-        }else{
             bin = new GuillotineBin(this.binWidth, this.binHeight, this.rotate, this.MR, this.guillHeur, this.split);
-        }
         for (var i = 0; i < this.objectsToPack.length; i++) {
             bin.insert(this.objectsToPack[i]);
         }

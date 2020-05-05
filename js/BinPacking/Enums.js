@@ -1,28 +1,3 @@
-/**
- * Created by Veronika on 23.4.2015.
- */
-
-var oneDimChoiceHeuristic = {
-    NEXT_FIT: 1, ///< -NF: We always put the new rectangle to the last open shelf.
-    NEXT_FIT_DECREASING: 2,
-    FIRST_FIT: 3, ///< -FF: We test each rectangle against each shelf in turn and pack it to the first where it fits.
-    FIRST_FIT_DECREASING: 4,
-    BEST_FIT: 5, ///< -BAF: Choose the shelf with smallest remaining shelf area.
-    MR: 6,
-    KNAPSACK: 7
-};
-
-// Defines different heuristic rules that can be used in the packing process.
-var ShelfChoiceHeuristic = {
-    SHELF_NEXT_FIT: 1, ///< -NF: We always put the new rectangle to the last open shelf.
-    SHELF_FIRST_FIT: 2, ///< -FF: We test each rectangle against each shelf in turn and pack it to the first where it fits.
-    SHELF_BEST_AREA_FIT: 3, ///< -BAF: Choose the shelf with smallest remaining shelf area.
-    SHELF_WORST_AREA_FIT: 4, ///< -WAF: Choose the shelf with the largest remaining shelf area.
-    SHELF_BEST_HEIGHT_FIT: 5, ///< -BHF: Choose the smallest shelf (height-wise) where the rectangle fits.
-    SHELF_BEST_WIDTH_FIT: 6, ///< -BWF: Choose the shelf that has the least remaining horizontal shelf space available after packing.
-    SHELF_WORST_WIDTH_FIT: 7 ///< -WWF: Choose the shelf that will have most remainining horizontal shelf space available after packing.
-};
-
 /// Specifies the different choice heuristics that can be used when deciding which of the free subrectangles
 /// to place the to-be-packed rectangle into.
 var FreeRectChoiceHeuristic = {

@@ -1,7 +1,3 @@
-/**
- * Created by Veronika on 28.4.2015.
- */
-
 function sortByAreaAS(r1, r2) {
     if (r1.width * r1.height == r2.width * r2.height) {
         return 0;

@@ -2,36 +2,12 @@
 <html>
 <head lang="fr">
     <meta charset="UTF-8">
-    <script src="js/jquery-1.10.1.min.js"></script>
-    <script src="js/BinPacking/Enums.js"></script>
-    <script src="js/BinPacking/SortComparators.js"></script>
-    <script src="js/BinPacking/twoDim/Rectangle.js"></script>
-    <script src="js/BinPacking/twoDim/Shelf.js"></script>
-    <script src="js/BinPacking/twoDim/ShelfBin.js"></script>
-    <script src="js/BinPacking/twoDim/GuillotineBin.js"></script>
-    <script src="js/BinPacking/Animation.js"></script>
-    <script src="js/PageController.js"></script>
-    <script src="js/SVG.js"></script>
-    <script src="js/BinPacking/PackingController.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/mobile.js"></script>
-    <script src="js/alertify.min.js"></script>
-    <link rel="stylesheet" href="css/desition_btn.css"/>
-    <link rel="stylesheet" href="css/radio_circle.css"/>
-    <link rel="stylesheet" href="css/mobile.css"/>
-    <link rel="stylesheet" href="css/alertify.core.css"/>
-    <link rel="stylesheet" href="css/alertify.default.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
 
 </head>
 <body>
 <div id="page-container">
-        <div id="target-6">
-            <h2>Result</h2>
-            <div class="btns_speed">
-                <label for="fader">Speed: </label>
-                <input type="range" min="1" max="100" value="5" id="fader" step="1" oninput="updateSliderBar(value)" onmousemove="updateSliderBar(value)">
-                <output for="fader" id="volume">5</output>
-            </div>
+            <h2>Résultats</h2>
             <div id="canvases_div">
                 <canvas id="canvas_layer1" height="300" width="400">
                     This text is displayed if your browser does not support HTML5 Canvas.
@@ -39,8 +15,17 @@
                 <canvas id="canvas_layer2" height="300" width="400">
                 </canvas>
             </div>
-        </div>
     </div>
 </div>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/BinPacking/Enums.js"></script>
+<script src="js/BinPacking/SortComparators.js"></script>
+<script src="js/BinPacking/twoDim/Rectangle.js"></script>
+<script src="js/BinPacking/twoDim/Shelf.js"></script>
+<script src="js/BinPacking/twoDim/ShelfBin.js"></script>
+<script src="js/BinPacking/twoDim/GuillotineBin.js"></script>
+<script src="js/BinPacking/Animation.js"></script>
+<script src="js/BinPacking/PackingController.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
